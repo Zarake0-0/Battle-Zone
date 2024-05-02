@@ -1,0 +1,93 @@
+apply from: 'aar-imports.gradle'
+apply from: 'projects.gradle'
+apply from: 'abi.gradle'
+android {
+	packagingOptions {
+		jniLibs {
+			useLegacyPackaging=true
+		}
+	}
+	signingConfigs {
+		release {
+		}
+	}
+	buildTypes {
+		release {
+			signingConfig signingConfigs.release
+			minifyEnabled true
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+		debug {
+			debuggable true
+		}
+	}
+}
+//AndroidBackgroundService_UPL -- START
+	dependencies {
+		implementation('androidx.appcompat:appcompat:1.2.0')
+		implementation('androidx.work:work-runtime:2.4.0')
+		implementation('androidx.concurrent:concurrent-futures:1.1.0')
+		implementation 'androidx.multidex:multidex:2.0.1'
+		
+		//Needed if we ever include guava to avoid conflicts with our use of androidx concurrent futures
+		//implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+	}
+//AndroidBackgroundService_UPL -- STOP
+			dependencies {
+			implementation 'com.android.billingclient:billing:6.0.0'
+			}
+dependencies {
+	implementation('com.android.support:support-v13:27.1.0')
+}
+// --- Begin AFSProject ---
+tasks.whenTaskAdded { task ->
+	if (task.name == 'assembleRelease') {
+		tasks.create(name:'ueAFSProjectAssembleRelease', type: Exec) {
+			description "Compile AFSProject for Release"
+			workingDir "$rootDir" + "/AFSProject"
+			if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+				commandLine 'cmd', '/c', 'gradlew.bat', 'app:assembleRelease'
+			} else {
+				commandLine 'sh', '-c', 'chmod +x ./gradlew && ./gradlew app:assembleRelease'
+			}
+		}
+		task.finalizedBy 'ueAFSProjectAssembleRelease'
+	}
+	if (task.name == 'assembleDebug') {
+		tasks.create(name:'ueAFSProjectAssembleDebug', type: Exec) {
+			description "Compile AFSProject for Debug"
+			workingDir "$rootDir" + "/AFSProject"
+			if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+				commandLine 'cmd', '/c', 'gradlew.bat', 'app:assembleDebug'
+			} else {
+				commandLine 'sh', '-c', 'chmod +x ./gradlew && ./gradlew app:assembleDebug'
+			}
+		}
+		task.finalizedBy 'ueAFSProjectAssembleDebug'
+	}
+	if (task.name == 'bundleRelease') {
+		tasks.create(name:'ueAFSProjectBundleRelease', type: Exec) {
+			description "Compile AFSProject for Release"
+			workingDir "$rootDir" + "/AFSProject"
+			if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+				commandLine 'cmd', '/c', 'gradlew.bat', 'app:assembleRelease'
+			} else {
+				commandLine 'sh', '-c', 'chmod +x ./gradlew && ./gradlew app:assembleRelease'
+			}
+		}
+		task.finalizedBy 'ueAFSProjectBundleRelease'
+	}
+	if (task.name == 'bundleDebug') {
+		tasks.create(name:'ueAFSProjectBundleDebug', type: Exec) {
+			description "Compile AFSProject for Debug"
+			workingDir "$rootDir" + "/AFSProject"
+			if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+				commandLine 'cmd', '/c', 'gradlew.bat', 'app:assembleDebug'
+			} else {
+				commandLine 'sh', '-c', 'chmod +x ./gradlew && ./gradlew app:assembleDebug'
+			}
+		}
+		task.finalizedBy 'ueAFSProjectBundleDebug'
+	}
+}
+// --- End AFSProject ---

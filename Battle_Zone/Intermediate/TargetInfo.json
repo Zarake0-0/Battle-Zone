@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Battle_Zone",
+			"Path": "..\\Source\\Battle_Zone.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Battle_ZoneEditor",
+			"Path": "..\\Source\\Battle_ZoneEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

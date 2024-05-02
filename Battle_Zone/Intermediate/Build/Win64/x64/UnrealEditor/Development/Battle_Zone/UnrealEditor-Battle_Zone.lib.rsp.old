@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-Battle_Zone.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Battle Zone\Battle_Zone\Intermediate\Build\Win64\x64\Battle_ZoneEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"D:\Battle Zone\Battle_Zone\Intermediate\Build\Win64\x64\UnrealEditor\Development\Battle_Zone\Battle_Zone.cpp.obj"
+"D:\Battle Zone\Battle_Zone\Intermediate\Build\Win64\x64\UnrealEditor\Development\Battle_Zone\Default.rc2.res"
+/OUT:"D:\Battle Zone\Battle_Zone\Intermediate\Build\Win64\x64\UnrealEditor\Development\Battle_Zone\UnrealEditor-Battle_Zone.lib"

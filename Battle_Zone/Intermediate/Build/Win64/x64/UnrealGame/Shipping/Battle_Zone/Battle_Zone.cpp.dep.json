@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\battle zone\\battle_zone\\source\\battle_zone\\battle_zone.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\battle zone\\battle_zone\\intermediate\\build\\win64\\x64\\battle_zone\\shipping\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\battle zone\\battle_zone\\intermediate\\build\\win64\\x64\\unrealgame\\shipping\\battle_zone\\definitions.battle_zone.h",
+            "c:\\battle zone\\battle_zone\\source\\battle_zone\\battle_zone.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

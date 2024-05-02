@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Battle Zone\\Battle_Zone\\Source\\Battle_Zone\\Battle_Zone.Build.cs",
+		"C:\\Battle Zone\\Battle_Zone\\Source\\Battle_Zone.Target.cs",
+		"C:\\Battle Zone\\Battle_Zone\\Source\\Battle_ZoneEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}
